@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# check_sysstat.pl
+# check_sa.pl
 # Author: Jeff Goldschrafe
 # Version: 0.20
 # 
@@ -17,6 +17,9 @@
 #   counters. You will need to run multiple checks.
 # 
 # This file is distributed under the terms of the GNU General Public License.
+# The full text of the GPL can be obtained at the following location:
+#
+#     http://www.gnu.org/licenses/gpl.html
 
 use strict;
 use warnings;
