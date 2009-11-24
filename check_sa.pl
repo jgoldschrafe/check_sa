@@ -2,7 +2,7 @@
 
 # check_sa.pl
 # Author: Jeff Goldschrafe
-# Version: 0.20
+# Version: 0.21
 # 
 # This Nagios plugin allows you to query the values of one or more sa/sar
 # counters, compare them to specified thresholds, and return the performance
@@ -317,6 +317,7 @@ sub sanity_check {
     my $counters = $opts->{'counters'};
     my $critical_thresholds = $opts->{'critical_thresholds'};
     my $ignore_thresholds = $opts->{'ignore_thresholds'};
+    my $list_counters = $opts->{'list_counters'};
     my $sadf = $opts->{'sadf'};
     my $sa_log_dir = $opts->{'sa_log_dir'};
     my $warning_thresholds = $opts->{'warning_thresholds'};
@@ -333,7 +334,7 @@ sub sanity_check {
         throw Error::Simple("$sa_log_dir is not a directory!");
     }
 
-    if (scalar @$counters == 0) {
+    if (!$list_counters && scalar @$counters == 0) {
         throw Error::Simple("No counters to check!");
     }
 
