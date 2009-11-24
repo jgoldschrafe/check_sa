@@ -149,7 +149,7 @@ sub init_plugin {
     
     $np->add_arg(
       spec => 'sadf-path=s',
-      help => "--sadf-log-path=PATH\n" .
+      help => "--sadf-path=PATH\n" .
               "    The path to sadf (default /usr/bin/sadf)"
     );
     
