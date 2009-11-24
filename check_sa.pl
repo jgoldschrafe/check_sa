@@ -2,7 +2,7 @@
 
 # check_sa.pl
 # Author: Jeff Goldschrafe
-# Version: 0.21
+# Version: 0.21.1
 # 
 # This Nagios plugin allows you to query the values of one or more sa/sar
 # counters, compare them to specified thresholds, and return the performance
@@ -232,11 +232,11 @@ sub parse_logs {
            
             # Check whether or not the device matches one of the patterns
             # designating devices we don't want
-            my $exclude_device_regex_pass = (scalar @$exclude_devices == 0);
+            my $exclude_device_regex_pass = 1;
             foreach my $xd (@$exclude_devices) {
                 my $regex = $regex_cache{$xd};
-                if ($device !~ /$regex/) {
-                    $exclude_device_regex_pass = 1;
+                if ($device =~ /$regex/) {
+                    $exclude_device_regex_pass = 0;
                     last;
                 }
             }
