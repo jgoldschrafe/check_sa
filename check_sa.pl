@@ -302,13 +302,12 @@ sub read_logs {
 
     my $sadf_output = '';
     foreach my $log (@sa_log_files) {
-        $sadf_output .= `$sadf $log -- -A`;
+        $sadf_output .= `$sadf $log -- -Adp`;
     }
-    $sadf_output .= `$sadf -- -A`;
+    $sadf_output .= `$sadf -- -Adp`;
     
     return $sadf_output;
 }
-
 
 
 sub sanity_check {
